@@ -1,0 +1,166 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.mycompany.principal1;
+
+/**
+ *
+ * @author Heloisa 2 DS/AMS
+ */
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+class Calculadora extends JFrame{
+    JLabel rotulo1,rotulo2,exibir;
+    JTextField texto1,texto2;
+    JButton somar;
+    JButton subtrair;
+    JButton multiplicar;
+    JButton dividir;
+    JButton raizquadrada;
+    
+    public Calculadora(){
+        super("Exemplo de calculadora");
+        Container tela = getContentPane();
+        setLayout(null);
+        rotulo1 = new JLabel("1° número: ");
+        rotulo2 = new JLabel("2° número: ");
+        texto1 = new JTextField(5);
+        texto2 = new JTextField(5);
+        exibir = new JLabel("");
+        somar = new JButton("Somar");
+        subtrair = new JButton("Subtrair");
+        multiplicar = new JButton("Multiplicar");
+        dividir = new JButton("Dividir");
+        raizquadrada = new JButton("Raiz quadrada");
+        
+        //Cor das palavras
+        rotulo1.setForeground(Color.WHITE);
+        rotulo2.setForeground(Color.WHITE);
+        exibir.setForeground(Color.WHITE);
+        somar.setForeground(Color.PINK);
+        subtrair.setForeground(Color.PINK);
+        multiplicar.setForeground(Color.PINK);
+        dividir.setForeground(Color.PINK);
+        raizquadrada.setForeground(Color.PINK);
+        
+        //Cor dos botões
+        somar.setBackground(Color.WHITE);
+        subtrair.setBackground(Color.WHITE);
+        multiplicar.setBackground(Color.WHITE);
+        dividir.setBackground(Color.WHITE);
+        raizquadrada.setBackground(Color.WHITE);
+        
+        rotulo1.setBounds(50,20,100,20);
+        rotulo2.setBounds(50,60,100,20);
+        texto1.setBounds(120,20,200,20);
+        texto2.setBounds(120,60,200,20);
+        exibir.setBounds(10,160,200,20);
+        somar.setBounds(10,100,80,20);
+        subtrair.setBounds(100,100,80,20);
+        multiplicar.setBounds(190,100,100,20);
+        dividir.setBounds(300,100,80,20);
+        raizquadrada.setBounds(10,130,130,20);
+        
+        //Área do cálculo soma
+        somar.addActionListener(
+                new ActionListener(){
+                  public void actionPerformed(ActionEvent e){
+                  int numero1,numero2,somar;
+                  somar=0;
+                  numero1 = Integer.parseInt(texto1.getText());
+                  numero2 = Integer.parseInt(texto2.getText());
+                  somar = numero1 + numero2;
+                  exibir.setVisible(true);
+                  exibir.setText("A soma é:" +somar);
+                  }
+               }
+        );
+        
+        //Cálculo subtrair
+        subtrair.addActionListener(
+                new ActionListener(){
+                  public void actionPerformed(ActionEvent e){
+                  int numero1,numero2,subtrair;
+                  subtrair=0;
+                  numero1 = Integer.parseInt(texto1.getText());
+                  numero2 = Integer.parseInt(texto2.getText());
+                  subtrair = numero1 - numero2;
+                  exibir.setVisible(true);
+                  exibir.setText("A subtração é: " +subtrair);
+                  }
+               }
+        );
+        
+        //Cálculo multiplicar
+        multiplicar.addActionListener(
+                new ActionListener(){
+                  public void actionPerformed(ActionEvent e){
+                  int numero1,numero2,multiplicar;
+                  multiplicar=0;
+                  numero1 = Integer.parseInt(texto1.getText());
+                  numero2 = Integer.parseInt(texto2.getText());
+                  multiplicar = numero1 * numero2;
+                  exibir.setVisible(true);
+                  exibir.setText("A multiplicação é: " +multiplicar);
+                  }
+               }
+        );
+        
+        //Cálculo dividir
+        dividir.addActionListener(
+                new ActionListener(){
+                  public void actionPerformed(ActionEvent e){
+                  int numero1,numero2,dividir;
+                  dividir=0;
+                  numero1 = Integer.parseInt(texto1.getText());
+                  numero2 = Integer.parseInt(texto2.getText());
+                  dividir = numero1 / numero2;
+                  exibir.setVisible(true);
+                  exibir.setText("A divisão é: " +dividir);
+                  }
+               }
+        );
+        
+        //Cálculo raiz quadrada
+        raizquadrada.addActionListener(
+                     new ActionListener() {
+                       public void actionPerformed(ActionEvent e) {
+                       double numero1, numero2, soma, resultado;
+                       numero1 = Double.parseDouble(texto1.getText());
+                       numero2 = Double.parseDouble(texto2.getText());
+                       soma = numero1 + numero2;
+                       resultado = Math.sqrt(soma);
+                       exibir.setVisible(true);
+                       exibir.setText("A raiz quadrada da soma é: " + resultado);
+                       }
+                   }
+        );
+         
+      exibir.setVisible(false);
+      
+      tela.setBackground(Color.pink);
+      tela.add(rotulo1);
+      tela.add(rotulo2);
+      tela.add(texto1);
+      tela.add(texto2);
+      tela.add(exibir);
+      tela.add(somar);
+      tela.add(subtrair);
+      tela.add(multiplicar);
+      tela.add(dividir);
+      tela.add(raizquadrada);
+      
+      setSize(400, 250);
+      setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        Calculadora app = new Calculadora();
+        app.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+}
+
